@@ -25,3 +25,6 @@ jobs:
 
       - name: create file on remote server
         run: ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "touch 'hello-world.txt'"
+
+      - name: copy file to remote server
+        run: scp -P ${{secrets.SSH_PORT}} Readme.md ${{secrets.SSH_USERNAME}}@${{secrets.SSH_HOST}}:~/
