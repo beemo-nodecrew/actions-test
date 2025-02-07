@@ -30,7 +30,7 @@ jobs:
             /tmp/.buildx-cache/backend
             /tmp/.buildx-cache/frontend
           key: docker-image-layer-cache-${{ github.sha }}
-          restore-keys: docker-image-layer-cache
+          restore-keys: docker-image-layer-cache-
 
       - name: run ssh-agent
         uses: webfactory/ssh-agent@v0.9.0
