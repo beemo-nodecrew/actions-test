@@ -70,12 +70,6 @@ jobs:
       - name: Docker Image Build
         run: docker compose -f docker-compose-actions-cache.yml build
 
-      # 캐시 이동
-      - name: Move cache
-        run: |
-          rm -rf /tmp/.buildx-cache
-          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
-
       - name: Login DockerHub
         run: echo '${{ secrets.DOCKER_PASSWORD}}' | docker login -u '${{ secrets.DOCKER_USERNAME }}' --password-stdin
 
