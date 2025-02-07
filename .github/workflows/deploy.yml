@@ -21,6 +21,9 @@ jobs:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           title: "배포 시작"
 
+      - name: Force Fail
+        run: false
+
       - name: run ssh-agent
         uses: webfactory/ssh-agent@v0.9.0
         with:
@@ -73,3 +76,19 @@ jobs:
             docker-compose pull
             docker-compose down
             docker-compose up -d
+
+      # 액션 종료 알림 메세지
+      - name: End Message - Success
+        uses: sarisia/actions-status-discord@v1
+        if: success()
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          title: "배포 종료 - 성공"
+
+      # 액션 종료 알림 메세지
+      - name: End Message - Fail
+        uses: sarisia/actions-status-discord@v1
+        if: failure()
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          title: "배포 종료 - 실패"
