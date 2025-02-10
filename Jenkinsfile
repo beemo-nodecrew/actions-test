@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Practice') {
             steps {
-                echo 'Jenkins 연습하기'
+                echo 'Jenkins 연습하기 test'
             }
         }
     } 
