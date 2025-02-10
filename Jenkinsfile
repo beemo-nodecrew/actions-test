@@ -1,11 +1,10 @@
 pipeline {
-  agent any
-
-  stages {
-    stage('Build') {
-        steps {
-            echo '애플리케이션 빌드'
-        } 
-    }
-  }
+    agent any
+    stages {
+        stage('Practice') {
+            steps {
+                echo 'Jenkins 연습하기'
+            }
+        }
+    } 
 }
